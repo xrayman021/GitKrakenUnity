@@ -126,48 +126,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 494051652}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &232158206
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232158205}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &232158207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400122, guid: 317a56890b5c8e74ab1d492a2c7fb608,
     type: 3}
   m_PrefabInstance: {fileID: 494051652}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &232158208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232158205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa938b8fec305547b39180f61a57bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 12
-  gravity: -9.81
-  jumpHeight: 3
-  sprintSpeed: 18
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  isGrounded: 0
 --- !u!143 &232158209
 CharacterController:
   m_ObjectHideFlags: 0
@@ -184,7 +148,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.36
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &282268959
 GameObject:
