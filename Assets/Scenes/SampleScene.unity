@@ -139,7 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 232158209}
+  cam: {fileID: 963194228}
   speed: 6
+  turnSmoothTime: 0.1
 --- !u!4 &232158207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400122, guid: 317a56890b5c8e74ab1d492a2c7fb608,
@@ -990,7 +992,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530172797}
-  m_LocalRotation: {x: 0.067990474, y: 0.03885535, z: -0.002649941, w: 0.99692553}
+  m_LocalRotation: {x: 0.06799047, y: 0.03885535, z: -0.0026499403, w: 0.99692553}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
