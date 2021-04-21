@@ -3,7 +3,12 @@ guid: 0162f3be1bbf205479ccbf7040d3738d
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Axe Blade
+    second: {fileID: 2100000, guid: 7b11dccfe9bcd3b479fb4d848ee43759, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
