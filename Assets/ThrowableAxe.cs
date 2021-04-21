@@ -19,8 +19,10 @@ public class ThrowableAxe : MonoBehaviour
     //Throw axe
     void ThrowAxe()
     {
+        axe.transform.parent = null;
         axe.isKinematic = false;
-        axe.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * throwForce);
+        axe.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * throwForce, ForceMode.Impulse);
+        axe.AddTorque(axe.transform.TransformDirection(Vector3.right) * 500, ForceMode.Impulse);
     }
 
     //Return Axe
