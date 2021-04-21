@@ -19,7 +19,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+        animator.SetFloat("Speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
 
         if(direction.magnitude >= 0.1f)
         {
