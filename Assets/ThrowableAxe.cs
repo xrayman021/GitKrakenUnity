@@ -6,6 +6,11 @@ public class ThrowableAxe : MonoBehaviour
 {
     public GameObject AxePrefab;
     public Transform launcher;
+    private GameObject currentAxe;
+    public bool returning;
+    public float returnForce;
+    private Rigidbody currentAxeRB;
+    public float collectDist = 1;
 
     public MeshRenderer axe;
     public float throwForce = 50;
@@ -31,6 +36,18 @@ public class ThrowableAxe : MonoBehaviour
         {
             ReturnAxe();
         }
+        if(returning)
+        {
+            currentAxe.transform.LookAt(transform.position);
+            currentAxeRB.AddForce(currentAxe.transform.forward * returnForce);
+            if (currentAxe != null && Vector3.Distance(transform.position, currentAxe.transform.position) < collectDist)
+            {
+                returning = false;
+                ResetAxe();
+            }
+        }
+        
+
         /*if(isReturning)
         {
             if(time < 1.0f)
@@ -43,14 +60,19 @@ public class ThrowableAxe : MonoBehaviour
                 ResetAxe();
             }
         } */
+
     }
 
     //Throw axe
     void ThrowAxe()
     {
-        GameObject currentAxe = Instantiate(AxePrefab, launcher.position, launcher.rotation);
-        Rigidbody axeRB = currentAxe.GetComponent<Rigidbody>();
-        axeRB.AddForce(launcher.forward*throwForce);
+        if (axe.enabled)
+        {
+            axe.enabled = false;
+            currentAxe = Instantiate(AxePrefab, launcher.position, launcher.rotation);
+            currentAxeRB = currentAxe.GetComponent<Rigidbody>();
+            currentAxeRB.AddForce(launcher.forward * throwForce);
+        }
 
 
        /*
@@ -65,6 +87,9 @@ public class ThrowableAxe : MonoBehaviour
     //Return Axe
     void ReturnAxe()
     {
+        returning = true;
+        currentAxeRB.velocity = new Vector3(0, 0, 0);
+
         /*time = 0.0f;
         old_pos = axe.position;
         isReturning = true;
@@ -74,6 +99,8 @@ public class ThrowableAxe : MonoBehaviour
     //Reset Axe
     void ResetAxe()
     {
+        axe.enabled = true;
+        Destroy(currentAxe);
         /*isReturning = false;
         axe.transform.parent = transform;
         axe.position = target.position;
