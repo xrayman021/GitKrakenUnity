@@ -88,7 +88,10 @@ public class ThrowableAxe : MonoBehaviour
     void ReturnAxe()
     {
         returning = true;
+        currentAxe.transform.parent = null;
         currentAxeRB.velocity = new Vector3(0, 0, 0);
+        currentAxe.transform.Find("AxePivot").GetComponent<Spin>().enabled = true;
+
 
         /*time = 0.0f;
         old_pos = axe.position;
