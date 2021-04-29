@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class ThrowableAxe : MonoBehaviour
 {
-    public Rigidbody axe;
+    public GameObject AxePrefab;
+    public Transform launcher;
+
+    public MeshRenderer axe;
     public float throwForce = 50;
     public Transform target, curve_point;
     private Vector3 old_pos;
     private bool isReturning = false;
     private float time = 0.0f;
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,7 +31,7 @@ public class ThrowableAxe : MonoBehaviour
         {
             ReturnAxe();
         }
-        if(isReturning)
+        /*if(isReturning)
         {
             if(time < 1.0f)
             {
@@ -33,35 +42,42 @@ public class ThrowableAxe : MonoBehaviour
             {
                 ResetAxe();
             }
-        }
+        } */
     }
 
     //Throw axe
     void ThrowAxe()
     {
+        GameObject currentAxe = Instantiate(AxePrefab, launcher.position, launcher.rotation);
+        Rigidbody axeRB = currentAxe.GetComponent<Rigidbody>();
+        axeRB.AddForce(launcher.forward*throwForce);
+
+
+       /*
         isReturning = false;
         axe.transform.parent = null;
         axe.isKinematic = false;
         axe.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * throwForce, ForceMode.Impulse);
         axe.AddTorque(axe.transform.TransformDirection(Vector3.right) * 500, ForceMode.Impulse);
+        */
     }
 
     //Return Axe
     void ReturnAxe()
     {
-        time = 0.0f;
+        /*time = 0.0f;
         old_pos = axe.position;
         isReturning = true;
         axe.velocity = Vector3.zero;
-        axe.isKinematic = true;
+        axe.isKinematic = true;*/
     }
     //Reset Axe
     void ResetAxe()
     {
-        isReturning = false;
+        /*isReturning = false;
         axe.transform.parent = transform;
         axe.position = target.position;
-        axe.rotation = target.rotation;
+        axe.rotation = target.rotation;*/
     }
     Vector3 getBQCPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
     {
