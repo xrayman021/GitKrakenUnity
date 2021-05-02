@@ -20,20 +20,29 @@ public class ThrowableAxe : MonoBehaviour
     private float time = 0.0f;
 
     public Animator animator;
+    bool Throw;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        animator = gameObject.GetComponent<Animator>();
+        Throw = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonUp("Fire1"))
+        
+        if (Input.GetButtonUp("Fire1"))
         {
             ThrowAxe();
-            animator.SetFloat("Throw", Mathf.Abs(throwForce) + Mathf.Abs(returnForce));
+            Throw = true;
+          
+        }
+        else
+        {
+            Throw = false;
         }
         if (Input.GetButtonUp("Fire2"))
         {
@@ -49,6 +58,11 @@ public class ThrowableAxe : MonoBehaviour
                 ResetAxe();
             }
         }
+        if (Throw == false) //Throw animation
+            animator.SetBool("Throw", false);
+
+        if (Throw == true)
+            animator.SetBool("Throw", true);
         
 
         /*if(isReturning)
