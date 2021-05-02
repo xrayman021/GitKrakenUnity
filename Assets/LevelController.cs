@@ -6,7 +6,7 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] AudioClip _music = null;
 
-    private void Update()
+    void Start()
     {
         AudioHelper.PlayClip2D(_music, 1);
     }
