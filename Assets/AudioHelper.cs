@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioHelper : MonoBehaviour
+public class AudioHelper 
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AudioSource PlayClip2D(AudioClip clip, float volume)
     {
-        
-    }
+        GameObject audioObject = new GameObject("2DAudio");
+        AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.volume = volume;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        audioSource.Play();
+
+        Object.Destroy(audioObject, clip.length);
+
+        return audioSource;
     }
 }
