@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThrowableAxe : MonoBehaviour
 {
+    [SerializeField] AudioClip _axeThrow = null;
     public GameObject AxePrefab;
     public Transform launcher;
     private GameObject currentAxe;
@@ -38,7 +39,8 @@ public class ThrowableAxe : MonoBehaviour
         {
             ThrowAxe();
             Throw = true;
-          
+            AudioHelper.PlayClip2D(_axeThrow, 1);
+
         }
         else
         {

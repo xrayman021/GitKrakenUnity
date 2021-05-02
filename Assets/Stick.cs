@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Stick : MonoBehaviour
 {
+    [SerializeField] AudioClip _axeImpact = null;
     private Rigidbody rb;
     public Spin spinner;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Wall")
         {
+            AudioHelper.PlayClip2D(_axeImpact, 1);
             transform.parent = collision.transform;
             rb = GetComponent<Rigidbody>();
             rb.velocity = new Vector3(0, 0, 0);

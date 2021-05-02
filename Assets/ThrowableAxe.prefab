@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421e920c7c3f4454da646e0e25a10fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _axeImpact: {fileID: 8300000, guid: a0472f1a1b9c9fc4fb0cdbb5d4edfb95, type: 3}
   spinner: {fileID: 7349170745356580125}
 --- !u!1 &7349170745356580127
 GameObject:
