@@ -19,6 +19,8 @@ public class ThrowableAxe : MonoBehaviour
     private bool isReturning = false;
     private float time = 0.0f;
 
+    public Animator animator;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -31,6 +33,7 @@ public class ThrowableAxe : MonoBehaviour
         if(Input.GetButtonUp("Fire1"))
         {
             ThrowAxe();
+            animator.SetFloat("Throw", Mathf.Abs(throwForce) + Mathf.Abs(returnForce));
         }
         if (Input.GetButtonUp("Fire2"))
         {
