@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce24705c0fbe0e24a8f38b7810939a07
+guid: 74d5e3d2bcc62044bb217e9edfd7cf5f
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: T-Pose
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 66
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

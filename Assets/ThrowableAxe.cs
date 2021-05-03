@@ -22,6 +22,10 @@ public class ThrowableAxe : MonoBehaviour
 
     public Animator animator;
     bool Throw;
+    bool Catch;
+
+    private float throwCounter = 0;
+    private float catchCounter = 0;
 
     void Start()
     {
@@ -42,10 +46,10 @@ public class ThrowableAxe : MonoBehaviour
             AudioHelper.PlayClip2D(_axeThrow, 1);
 
         }
-        else
+        /*else
         {
             Throw = false;
-        }
+        }*/
         if (Input.GetButtonUp("Fire2"))
         {
             ReturnAxe();
@@ -64,7 +68,27 @@ public class ThrowableAxe : MonoBehaviour
             animator.SetBool("Throw", false);
 
         if (Throw == true)
+        {
             animator.SetBool("Throw", true);
+            throwCounter -= 1;
+            if(throwCounter <= 0)
+            {
+                Throw = false;
+            }
+        }
+        if(Catch)
+        {
+            animator.SetBool("Catch", true);
+            catchCounter -= 1;
+            if(catchCounter <= 0)
+            {
+                Catch = false;
+            }
+        }
+        if(Catch == false)
+        {
+            animator.SetBool("Catch", false);
+        }
         
 
         /*if(isReturning)
@@ -87,6 +111,7 @@ public class ThrowableAxe : MonoBehaviour
     {
         if (axe.enabled)
         {
+            throwCounter = 10;
             axe.enabled = false;
             currentAxe = Instantiate(AxePrefab, launcher.position, launcher.rotation);
             currentAxeRB = currentAxe.GetComponent<Rigidbody>();
@@ -107,7 +132,10 @@ public class ThrowableAxe : MonoBehaviour
     void ReturnAxe()
     {
         returning = true;
-        currentAxe.transform.parent = null;
+        if (currentAxe.transform.parent != null)
+        {
+            currentAxe.transform.parent = null;
+        }
         currentAxeRB.velocity = new Vector3(0, 0, 0);
         currentAxe.transform.Find("AxePivot").GetComponent<Spin>().enabled = true;
 
@@ -121,6 +149,8 @@ public class ThrowableAxe : MonoBehaviour
     //Reset Axe
     void ResetAxe()
     {
+        Catch = true;
+        catchCounter = 10;
         axe.enabled = true;
         Destroy(currentAxe);
         /*isReturning = false;
