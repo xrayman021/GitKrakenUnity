@@ -1708,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b1509922bda5f45a6f4cd022fa5ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitSound: {fileID: 8300000, guid: a0472f1a1b9c9fc4fb0cdbb5d4edfb95, type: 3}
+  _hitSound: {fileID: 8300000, guid: 52ac2e37841568a4ea554cabddccd1e7, type: 3}
   ragdoll: {fileID: 1718916623003153237, guid: 2baa5de59ef8df14bb3e4c70b0d9841e, type: 3}
   hitPower: 10000
 --- !u!1 &8205176396151301597
