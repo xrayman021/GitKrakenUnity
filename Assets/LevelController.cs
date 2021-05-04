@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             _sceneLoader.ReloadLevel();
         }
