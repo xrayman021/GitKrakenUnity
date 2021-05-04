@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GetHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject ragdoll;
+    public float hitPower;
+    //public Rigidbody hips;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject.tag == "Axe")
+        {
+            GameObject dead = Instantiate(ragdoll, transform.position, transform.rotation);
+            dead.GetComponentInChildren<Rigidbody>().AddForce((dead.transform.position - collision.gameObject.transform.position)*hitPower);
+            Destroy(gameObject);
+        }
     }
 }
