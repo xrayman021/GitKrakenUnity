@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrowableAxe : MonoBehaviour
 {
     [SerializeField] AudioClip _axeThrow = null;
+    [SerializeField] AudioClip _axeReturn = null;
     public GameObject AxePrefab;
     public Transform launcher;
     private GameObject currentAxe;
@@ -56,6 +57,7 @@ public class ThrowableAxe : MonoBehaviour
         }
         if(returning)
         {
+            AudioHelper.PlayClip2D(_axeReturn, 1);
             currentAxe.transform.LookAt(transform.position);
             currentAxeRB.AddForce(currentAxe.transform.forward * returnForce);
             if (currentAxe != null && Vector3.Distance(transform.position, currentAxe.transform.position) < collectDist)
